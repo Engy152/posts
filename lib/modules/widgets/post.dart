@@ -18,30 +18,30 @@ class post_screen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15.0,
             ),
             Text(
               post.posts![index].title.toString(),
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15.0,
             ),
             Text(
               //test
               post.posts![index].body.toString(),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.favorite_sharp,
                   color: Colors.red,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 7,
                 ),
                 Text(
@@ -59,10 +59,11 @@ class post_screen extends StatelessWidget {
               post.posts![index].tags.toString(),
               //style: TextStyle(fontSize: 15),
             ),
-            SizedBox(height: 5.0,)
+            const SizedBox(height: 5.0,)
           ],
         ),
       ),
     );
   }
 }
+

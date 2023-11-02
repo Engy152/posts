@@ -11,24 +11,24 @@ class PostsCubit extends Cubit<PostsStates>
 {
   PostsCubit():super(AppInitialStates());
   static PostsCubit get(context) => BlocProvider.of(context);
-  //
   PostModel? postmodel;
  void getAllPosts() async
   {
-      Api().get(url: 'https://dummyjson.com/posts').then((value)
+    emit(AppLoadingStates());
+     await Api().get(url: 'https://dummyjson.com/posts').then((value)
       {
         final data = json.decode(value.body);
-        print('88888888888');
         print(data);
-        postmodel = PostModel.fromJson(data);
-        print('ttttttttttttttttttttttttt');
+        if(value.statusCode==200){
+          postmodel = PostModel.fromJson(data);
         emit(AppScseesStates());
-      }
-      ).catchError((error) {
+        }else
+        {
+          print('error');
+        }
+      }).catchError((error) {
         print('error.toString()$error');
         emit(AppErrorStates());
       });
-
-
     }
   }
